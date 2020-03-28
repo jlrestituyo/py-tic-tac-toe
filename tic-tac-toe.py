@@ -1,7 +1,7 @@
 from random import randrange
 
 board = {1:" ",2:" ",3:" ",4:" ",5:"X",6:" ",7:" ",8:" ",9:" "}
-jugadas_disponibles = 8
+available_plays = 8
 
 def DisplayBoard(board_values):
     board= ("+" + "-" * 9) * 3 + "+\n" \
@@ -21,7 +21,7 @@ def DisplayBoard(board_values):
     print(board)
 
 
-def EnterMove(board):
+def player_move(board):
 # the function accepts the board current status, asks the user about their move, 
 # checks the input and updates the board according to the user's decision
     move = int(input("Enter your move: "))
@@ -45,11 +45,9 @@ def computer_move(board):
 
 
 
-def VictoryFor(board, sign):
+def vicoty_found(board, sign):
 # the function analyzes the board status in order to check if 
 # the player using 'O's or 'X's has won the game
-
-
     if(sign == board[1] and sign == board[2] and sign == board[3]):
         return True
     elif (sign == board[1] and sign == board[5]  and sign == board[9]):
@@ -71,15 +69,13 @@ def VictoryFor(board, sign):
 
 
 
-
-
 def winner(board):
 # the function draws the computer's move and updates the board
     winner = False
-    if(VictoryFor(board,"X")):
+    if(vicoty_found(board,"X")):
         print("The winer is: Computer")
         winner = True
-    elif(VictoryFor(board,"O")):
+    elif(vicoty_found(board,"O")):
         print("The winer is: User")
         winner = True
     else:
@@ -91,7 +87,7 @@ def winner(board):
 
 DisplayBoard(board)
 while(jugadas_disponibles > 1):
-    EnterMove(board)
+    player_move(board)
     DisplayBoard(board)
     if(winner(board)):
         break
