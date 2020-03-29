@@ -27,8 +27,8 @@ def player_move(board):
        move = int(input("Move not allowed!, re-enter: "))
     else:
         board[move] = "O"
-        global jugadas_disponibles 
-        jugadas_disponibles = jugadas_disponibles -1
+        global available_plays 
+        available_plays = available_plays -1
 
 
 def computer_move(board):
@@ -37,8 +37,8 @@ def computer_move(board):
        move = int(randrange(1,10))
     else:
         board[move] = "X"
-        global jugadas_disponibles 
-        jugadas_disponibles -= 1
+        global available_plays 
+        available_plays -= 1
 
 
 
