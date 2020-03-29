@@ -22,8 +22,6 @@ def DisplayBoard(board_values):
 
 
 def player_move(board):
-# the function accepts the board current status, asks the user about their move, 
-# checks the input and updates the board according to the user's decision
     move = int(input("Enter your move: "))
     while (board[move] in ("X","O") ):
        move = int(input("Move not allowed!, re-enter: "))
@@ -45,7 +43,7 @@ def computer_move(board):
 
 
 
-def vicoty_found(board, sign):
+def victory_found(board, sign):
 # the function analyzes the board status in order to check if 
 # the player using 'O's or 'X's has won the game
     if(sign == board[1] and sign == board[2] and sign == board[3]):
@@ -72,10 +70,10 @@ def vicoty_found(board, sign):
 def winner(board):
 # the function draws the computer's move and updates the board
     winner = False
-    if(vicoty_found(board,"X")):
+    if(victory_found(board,"X")):
         print("The winer is: Computer")
         winner = True
-    elif(vicoty_found(board,"O")):
+    elif(victory_found(board,"O")):
         print("The winer is: User")
         winner = True
     else:
@@ -83,6 +81,7 @@ def winner(board):
             print("No winer, it's Draw")
 
     return winner
+
 
 
 DisplayBoard(board)
