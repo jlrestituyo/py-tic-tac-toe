@@ -29,8 +29,8 @@ def player_move(board):
        move = int(input("Move not allowed!, re-enter: "))
     else:
         board[move] = "O"
-        global jugadas_disponibles 
-        jugadas_disponibles = jugadas_disponibles -1
+        global available_plays 
+        available_plays = available_plays -1
 
 
 def computer_move(board):
@@ -39,8 +39,8 @@ def computer_move(board):
        move = int(randrange(1,10))
     else:
         board[move] = "X"
-        global jugadas_disponibles 
-        jugadas_disponibles -= 1
+        global available_plays 
+        available_plays -= 1
 
 
 
@@ -79,14 +79,14 @@ def winner(board):
         print("The winer is: User")
         winner = True
     else:
-        if(jugadas_disponibles == 0):
+        if(available_plays == 0):
             print("No winer, it's Draw")
 
     return winner
 
 
 DisplayBoard(board)
-while(jugadas_disponibles > 1):
+while(available_plays > 1):
     player_move(board)
     DisplayBoard(board)
     if(winner(board)):
