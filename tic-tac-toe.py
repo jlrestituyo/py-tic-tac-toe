@@ -77,7 +77,7 @@ def winner(board):
         print("The winer is: User")
         winner = True
     else:
-        if(jugadas_disponibles == 0):
+        if(available_plays == 0):
             print("No winer, it's Draw")
 
     return winner
@@ -85,7 +85,7 @@ def winner(board):
 
 
 DisplayBoard(board)
-while(jugadas_disponibles > 1):
+while(available_plays > 1):
     player_move(board)
     DisplayBoard(board)
     if(winner(board)):
